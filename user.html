@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Emergency Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Emergency Profile</h1>
+
+  <div id="profile">
+    <p><b>Name:</b> <span id="name"></span></p>
+    <p><b>Blood Group:</b> <span id="blood"></span></p>
+    <p><b>Phone:</b> <span id="phone"></span></p>
+    <p><b>Allergies:</b> <span id="allergies"></span></p>
+    <p><b>Diseases:</b> <span id="diseases"></span></p>
+  </div>
+
+  <button onclick="login()">Login</button>
+  <button onclick="enableEdit()">Edit</button>
+
+  <div id="editForm" style="display:none;">
+    <input id="editName" placeholder="Name">
+    <input id="editPhone" placeholder="Phone">
+    <button onclick="save()">Save</button>
+  </div>
+
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
