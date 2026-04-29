@@ -2,28 +2,79 @@
 <html>
 <head>
   <title>Emergency Profile</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- PDF LIB -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 </head>
 
 <body>
 
 <div class="container">
-  <h1>Emergency Profile</h1>
 
-  <div id="profile">
+  <h1>🚨 Emergency Profile</h1>
+
+  <!-- PROFILE PHOTO -->
+  <img id="profileImg" class="profile-img">
+
+  <!-- BASIC INFO -->
+  <div class="card">
+    <h2>👤 Personal Info</h2>
     <p><b>Name:</b> <span id="name"></span></p>
-    <p><b>Blood Group:</b> <span id="blood"></span></p>
-    <p><b>Phone:</b> <span id="phone"></span></p>
-    <p><b>Allergies:</b> <span id="allergies"></span></p>
-    <p><b>Diseases:</b> <span id="diseases"></span></p>
+    <p><b>DOB:</b> <span id="dob"></span></p>
+    <p><b>Blood:</b> <span id="blood"></span></p>
   </div>
 
-  <button onclick="login()">Login</button>
-  <button onclick="enableEdit()">Edit</button>
+  <!-- CRITICAL -->
+  <div class="card danger">
+    <h2>⚠️ Medical Info</h2>
+    <p><b>Allergies:</b> <span id="allergies"></span></p>
+    <p><b>Diseases:</b> <span id="diseases"></span></p>
+    <p><b>Medications:</b> <span id="medications"></span></p>
+  </div>
 
-  <div id="editForm" style="display:none;">
+  <!-- RISK -->
+  <div class="card danger">
+    <h2>🧠 Risk Summary</h2>
+    <p id="risk"></p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="card">
+    <h2>📞 Emergency Contact</h2>
+    <a id="phone1" class="call-btn"></a><br>
+    <a id="phone2" class="call-btn"></a>
+  </div>
+
+  <!-- AMBULANCE -->
+  <div class="card">
+    <h2>🚑 Emergency Help</h2>
+    <a href="tel:108" class="emergency-btn">Call Ambulance (108)</a>
+  </div>
+
+  <!-- LOCATION -->
+  <div class="card">
+    <h2>📍 Location</h2>
+    <p id="location"></p>
+    <a id="mapLink" target="_blank">Open Map</a>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <button onclick="login()">Login</button>
+    <button onclick="enableEdit()">Edit</button>
+    <button onclick="downloadPDF()">Download PDF</button>
+  </div>
+
+  <!-- EDIT -->
+  <div id="editForm" class="card" style="display:none;">
+    <h2>Edit Profile</h2>
     <input id="editName" placeholder="Name">
     <input id="editPhone" placeholder="Phone">
+    <input id="editAllergies" placeholder="Allergies">
     <button onclick="save()">Save</button>
   </div>
 
